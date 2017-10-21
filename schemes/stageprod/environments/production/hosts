@@ -1,6 +1,0 @@
-# This file are exact info about a production hosts
-# documentation: http://docs.ansible.com/ansible/latest/intro_inventory.html#hosts-and-groups
-
-[web]
-#your.host.name
-#000.000.000.000
