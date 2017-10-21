@@ -1,0 +1,10 @@
+# This file are inventory variables for all environments
+# Original file is environments/common_variables.yml
+# All all.yml files is symbolic links
+
+# git settings
+#repository: https://github.com/yourname/yourreponame.git
+
+# linux settings
+#group: group_name
+#user: username
