@@ -1,7 +1,7 @@
 import os
 import argparse
 
-PATH = os.path.abspath(os.curdir)
+PATH = os.path.abspath(os.path.dirname(__file__))
 ENVIRONMENTS_DIR = os.path.join(PATH, 'environments')
 
 environments = [
