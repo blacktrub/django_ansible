@@ -1,0 +1,16 @@
+# This playbook deploys all roles
+
+- name: deploy application code to site
+  hosts: web
+  remote_user: root
+
+  roles:
+  # todo: need use only active roles
+    - celery
+    - frontend
+    - nginx
+    - postgresql
+    - rabbitmq
+    - redis
+    - supervisor
+    - web
