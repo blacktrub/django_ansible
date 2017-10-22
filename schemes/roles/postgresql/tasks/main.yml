@@ -1,0 +1,24 @@
+
+- name: check postgresql is running
+  service: name=postgresql state=started enabled=yes
+
+- name: check db is created
+  become: true
+  become_user: postgres
+  postgresql_db:
+    name={{ pg_db_name }}
+    encoding='UTF-8'
+    lc_collate='en_US.UTF-8'
+    lc_ctype='en_US.UTF-8'
+    template='template0'
+    state=present
+
+- name: check user has access to the database
+  become: true
+  become_user: postgres
+  postgresql_user: >
+    db={{ pg_db_name }}
+    name={{ pg_db_user }}
+    password={{ pg_db_password }}
+    priv=ALL
+    state=present
