@@ -1,0 +1,6 @@
+[packages]
+
+ansible = "*"
+
+
+[dev-packages]
