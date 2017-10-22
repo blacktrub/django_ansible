@@ -1,0 +1,28 @@
+upstream {{ nginx_upstream_name }} {
+    server unix:{{ gunicorn_socket_path }};
+}
+
+server {
+    listen {{ nginx_port }};
+    server_name {{ host }};
+
+    access_log /home/{{ user }}/log/nginx/access.log;
+    error_log /home/{{ user }}/log/nginx/error.log;
+
+    charset utf-8;
+    client_max_body_size 50m;
+
+    location /static/ {
+        alias {{ nginx_static_path }};
+    }
+
+    location /media/ {
+        alias {{ nginx_media_path }};
+    }
+
+    location / {
+        proxy_pass http://{{ nginx_upstream_name }};
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

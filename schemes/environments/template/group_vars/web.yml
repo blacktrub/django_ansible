@@ -1,10 +1,8 @@
-# This file are inventory variables for web hosts of dev
+# This file are inventory variables for web hosts of production
 
 # base settings
-
-#group: group_name
-#user: username
 #host: your.host.name
+#app_name: your_app_name
 
 # postgresql settings
 #pg_db_name: namedb
@@ -26,4 +24,10 @@
 #rq_password: password
 
 # nginx settings
+#nginx_port: 80
+#nginx_static_path: /path/to/your/static
+#nginx_media_path: /path/to/your/media
+#nginx_upstream_name: "{{ app_name }}"_upstream
 
+# gunicorn settings
+#gunicorn_socket_path: /path/to/your/socket
